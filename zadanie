@@ -1,0 +1,47 @@
+class Employee:
+def init(self, name, position):
+self.name = name
+self.position = position
+
+class Worker(Employee):
+def init(self, name, position, department):
+super().init(name, position)
+self.department = department
+
+class Engineer(Worker):
+def init(self, name, position, department, specialization):
+super().init(name, position, department)
+self.specialization = specialization
+
+class Detail:
+def init(self, name, material):
+self.name = name
+self.material = material
+
+class Mechanism(Detail):
+def init(self, name, material, components):
+super().init(name, material)
+self.components = components
+
+class Product:
+def init(self, name, manufacturer, price):
+self.name = name
+self.manufacturer = manufacturer
+self.price = price
+
+class Node(Mechanism, Product):
+def init(self, name, material, components, manufacturer, price):
+Mechanism.init(self, name, material, components)
+Product.init(self, name, manufacturer, price)
+
+Пример использования классов:
+worker1 = Worker("John Smith", "Worker", "Production")
+engineer1 = Engineer("Jane Doe", "Engineer", "Design", "Mechanical")
+mechanism1 = Mechanism("Engine", "Steel", ["Pistons", "Crankshaft", "Camshaft"])
+product1 = Product("Car Engine", "GM", 5000)
+node1 = Node("Car Engine Node", "Aluminum", ["Cylinder Head", "Engine Block"], "GM", 500)
+
+
+
+
+
